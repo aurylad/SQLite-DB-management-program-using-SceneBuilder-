@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormController">
+   <children>
+      <Label fx:id="dateLabel" layoutX="656.0" layoutY="639.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="statusLabel" layoutX="14.0" layoutY="639.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" />
+      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#exitProgram" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#hideForm" text="Hide Form" />
+                  <MenuItem mnemonicParsing="false" onAction="#showForm" text="Show form" />
+                  <MenuItem mnemonicParsing="false" onAction="#makeNonEditableFields" text=" Make fields non editable" />
+                  <MenuItem mnemonicParsing="false" onAction="#makeEditableFields" text=" Make fields editable" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="25.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <tabs>
+            <Tab text="Album database">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <TableView fx:id="tableAlbums" layoutX="14.0" layoutY="44.0" prefHeight="543.0" prefWidth="349.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="20.0">
+                          <columns>
+                            <TableColumn fx:id="columnAlbumId" prefWidth="75.0" text="AlbumId" />
+                            <TableColumn fx:id="columnTitle" minWidth="80.0" prefWidth="160.0" text="Title" />
+                              <TableColumn fx:id="columnArtistId" minWidth="0.0" prefWidth="98.0" text="ArtistId" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label fx:id="albumIdLabel" layoutX="381.0" layoutY="98.0" text="AlbumId" AnchorPane.leftAnchor="381.0" />
+                        <Label fx:id="titleLabel" layoutX="384.0" layoutY="146.0" text="Title" AnchorPane.leftAnchor="384.0" />
+                        <Label fx:id="artistIdLabel" layoutX="384.0" layoutY="192.0" text="ArtistId" AnchorPane.leftAnchor="384.0" />
+                        <TextField fx:id="txtFieldAlbumId" layoutX="452.0" layoutY="94.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="452.0" AnchorPane.rightAnchor="46.0" />
+                        <TextField fx:id="txtFieldArtistId" layoutX="452.0" layoutY="188.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="452.0" AnchorPane.rightAnchor="46.0" />
+                        <TextField fx:id="txtFieldTitle" layoutX="452.0" layoutY="142.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="452.0" AnchorPane.rightAnchor="46.0" />
+                        <Separator fx:id="seperator" layoutX="377.0" layoutY="248.0" prefHeight="4.0" prefWidth="311.0" AnchorPane.leftAnchor="377.0" AnchorPane.rightAnchor="10.0" />
+                        <Button fx:id="buttonUpdate" layoutX="384.0" layoutY="260.0" mnemonicParsing="false" onAction="#udateAlbumTable" text="Update" AnchorPane.leftAnchor="380.0" />
+                        <Button fx:id="buttonDelete" layoutX="452.0" layoutY="260.0" mnemonicParsing="false" onAction="#removeFromAlbumTable" text="Delete" AnchorPane.leftAnchor="480.0" />
+                        <Button fx:id="buttonAdd" layoutX="514.0" layoutY="260.0" mnemonicParsing="false" onAction="#addToAlbumTable" text="Add" AnchorPane.leftAnchor="580.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Employees Database">
+               <content>
+                  <AnchorPane>
+                     <children>
+						<TableView fx:id="tableEmployee" layoutX="14.0" layoutY="44.0" prefHeight="543.0" prefWidth="349.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="20.0">                          <columns>
+                            <TableColumn fx:id="columnEmployeeId" minWidth="5.0" prefWidth="75.0" text="EmployeeId" />
+                            <TableColumn fx:id="columnLastName" prefWidth="139.0" text="LastName" />
+                              <TableColumn fx:id="columnFirstName" prefWidth="72.0" text="FirstName" />
+                              <TableColumn fx:id="columnSecondTitle" prefWidth="75.0" text="Title" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label fx:id="employeeIdLabel" layoutX="385.0" layoutY="98.0" text="EmployeeId" AnchorPane.leftAnchor="385.0" />
+                        <Label fx:id="lastNameLabel" layoutX="385.0" layoutY="146.0" text="LastName" AnchorPane.leftAnchor="385.0" />
+                        <Label fx:id="firstNameLabel" layoutX="385.0" layoutY="191.0" text="FirstName" AnchorPane.leftAnchor="385.0" />
+                        <TextField fx:id="txtFieldEmployeeId" layoutX="462.0" layoutY="94.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="36.0" />
+                        <TextField fx:id="txtFieldFirstName" layoutX="462.0" layoutY="187.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="36.0" />
+                        <TextField fx:id="txtFieldLastName" layoutX="462.0" layoutY="142.0" prefHeight="25.0" prefWidth="139.0" promptText="Selects record from a table" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="36.0" />
+                        <Separator fx:id="secondSeparator" layoutX="390.0" layoutY="290.0" prefHeight="3.0" prefWidth="291.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="17.0" />
+                        <Button fx:id="buttonUpdateEmployees" layoutX="389.0" layoutY="305.0" mnemonicParsing="false" onAction="#udateEmployeesTable" text="Update" AnchorPane.leftAnchor="390.0" />
+                        <Button fx:id="buttonDeleteEmployees" layoutX="475.0" layoutY="305.0" mnemonicParsing="false" onAction="#removeFromEmpployeesTable" text="Delete" AnchorPane.leftAnchor="490.0" />
+                        <Button fx:id="buttonAddEmployees" layoutX="562.0" layoutY="305.0" mnemonicParsing="false" onAction="#addToEmployeesTable" text="Add" AnchorPane.leftAnchor="590.0" />
+                        <Label fx:id="EmployeesTitleLabel" layoutX="388.0" layoutY="234.0" text="Title" AnchorPane.leftAnchor="388.0" />
+                        <TextField fx:id="txtFieldSecondTitle" layoutX="462.0" layoutY="230.0" promptText="Selects record from a table" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="36.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
